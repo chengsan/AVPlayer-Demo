@@ -39,4 +39,4 @@ AVPlayer播放器Demo
               [self presentViewController:player animated:YES completion:NULL];
          
          效果图:
-               ![image](https://github.com/chengsan/AVPlayer-Demo/blob/master/910590-20160316213321787-808010455.png)
+![image](https://github.com/chengsan/AVPlayer-Demo/blob/master/910590-20160316213321787-808010455.png)
