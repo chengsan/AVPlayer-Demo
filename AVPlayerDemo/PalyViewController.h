@@ -23,6 +23,11 @@
 -(void)playViewControllerBack:(PalyViewController *)playViewController totalLong:(float)totalLong currentLong:(float)currentLong;
 //完成播放
 -(void)playViewControllerFinish:(PalyViewController *)playViewController totalLong:(float)totalLong currentLong:(float)currentLong;
+//Home退出或者熄屏
+-(void)playViewControllerWillResignActive;
+//重新进入
+-(void)playViewControllerDidBecomeActive;
+
 @end
 
 @interface PalyViewController : UIViewController

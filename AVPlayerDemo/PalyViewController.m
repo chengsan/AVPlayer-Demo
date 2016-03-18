@@ -63,7 +63,7 @@
                                                  name:UIApplicationWillResignActiveNotification object:nil];
     
     //监听是否重新进入程序程序.
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:)name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:)name:UIApplicationDidBecomeActiveNotification object:nil];
     
     //添加锁屏监听
 //    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, screenLockStateChanged, NotificationLock, NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
@@ -100,12 +100,21 @@
     {
         [self.playOrPause2 setImage:[UIImage imageNamed:@"stop_btn"] forState:UIControlStateNormal];
     }
+    if(self.playViewControllerDelegate != nil)
+    {
+        [self.playViewControllerDelegate playViewControllerWillResignActive];
+    }
 }
 
-//- (void)applicationDidBecomeActive:(NSNotification *)notification
-//{
-//    printf("按理说是重新进来后响应\n");
-//}
+- (void)applicationDidBecomeActive:(NSNotification *)notification
+{
+    NSLog(@"重新进来后响应");
+    if(self.playViewControllerDelegate != nil)
+    {
+        [self.playViewControllerDelegate playViewControllerDidBecomeActive];
+    }
+
+}
 
 - (BOOL)shouldAutorotate
 {
@@ -509,21 +518,25 @@
         if (playerItem.playbackLikelyToKeepUp)
         {
             //NSLog(@"===========>playbackLikelyToKeepUp");
-            if(nil != self.activityView)
-            {
-                self.activityView.hidden = YES;
-                [self.activityView stopAnimating];
-            }
-            
-            if(nil != self.loadImageView)
-            {
-                self.loadImageView.hidden = YES;
-                [self.loadImageView stopAnimating];
-            }
+//            if(nil != self.activityView)
+//            {
+//                self.activityView.hidden = YES;
+//                [self.activityView stopAnimating];
+//            }
+//            
+//            if(nil != self.loadImageView)
+//            {
+//                self.loadImageView.hidden = YES;
+//                [self.loadImageView stopAnimating];
+//            }
             
             if(self.isPlaying)
             {
                 [self.player play];
+            }
+            else
+            {
+                [self.player pause];
             }
         }
     }
