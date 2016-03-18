@@ -32,7 +32,7 @@
     {
         PalyViewController *player = [[PalyViewController alloc] init];
         player.isFastForward = true;
-        NSString *urlStr = @"http://download.yxybb.com/bbvideo/web/d1/d17/d13/d4/f1-web.mp4";
+        NSString *urlStr = @"http://krtv.qiniudn.com/150522nextapp";
          urlStr =[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url=[NSURL URLWithString:urlStr];
         //设置动画
@@ -53,7 +53,7 @@
     else if(button == self.btn2)
     {
         PalyViewController *player = [[PalyViewController alloc] init];
-        NSString *urlStr = @"http://download.yxybb.com/bbvideo/web/d1/d17/d13/d4/f1-web.mp4";
+        NSString *urlStr = @"http://krtv.qiniudn.com/150522nextapp";
         urlStr =[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url=[NSURL URLWithString:urlStr];
         player.url = url;
